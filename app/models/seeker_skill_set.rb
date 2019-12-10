@@ -1,0 +1,2 @@
+class SeekerSkillSet < ApplicationRecord
+end

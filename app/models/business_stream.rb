@@ -1,0 +1,2 @@
+class BusinessStream < ApplicationRecord
+end

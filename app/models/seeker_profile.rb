@@ -1,0 +1,2 @@
+class SeekerProfile < ApplicationRecord
+end
