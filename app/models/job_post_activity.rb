@@ -1,4 +1,4 @@
 class JobPostActivity < ApplicationRecord
-    belongs_to :users
-    belongs_to :job_posts
+    belongs_to :user
+    belongs_to :job_post
 end
