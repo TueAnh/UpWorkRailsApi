@@ -1,11 +1,11 @@
-## BusinessStream table 10
+# # BusinessStream table 10
 # 10.times do
 #   business_stream_name = Faker::Company.catch_phrase
 # BusinessStream.create!(
 #   business_stream_name:  business_stream_name,
 # )
 # end
-##Company Table 10
+# #Company Table 10
 # 10.times do
 #     company_name =Faker::Company.name
 #     profile_description = Faker::TvShows::SiliconValley.quote
@@ -21,7 +21,7 @@
 #   )
 # end 
 
-#CompanyImage Table 10
+# #CompanyImage Table 10
 # 10.times do
 #     company_image = Faker::Company.logo
 #      companies_id = Company.all[rand(0..9)].id
@@ -30,8 +30,8 @@
 #     companies_id: companies_id
 #   )
 # end 
-# ======================================================
-# UserType Table 50
+# # ======================================================
+# # UserType Table 50
 # 10.times do 
 # user_type_name = rand(0..2)
 # UserType.create!(
@@ -40,7 +40,7 @@
 # end
 
 
-## user Table 50
+# # user Table 50
 # User.create!(
 #   email: "bubu@gmail.com",
 #   password_digest:  "123456",
@@ -54,7 +54,7 @@
 #   )
 # end
 
-##UserLog Table 60
+# #UserLog Table 60
 # 60.times do 
 # users_id = User.all[rand(0..49)].id
 # last_login_date = Faker::Date.in_date_period
@@ -65,10 +65,10 @@
 #   last_job_apply_date: last_job_apply_date,
 #   )
 # end
-# ======================================================
+# # ======================================================
 
 
-##JobLocation Table 10
+# #JobLocation Table 10
 # 10.times do
 #   street_address = Faker::Address.street_address
 #   city = Faker::Address.city
@@ -82,7 +82,7 @@
 # )
 # end
 
-##JobLocation Table 10
+# #JobLocation Table 10
 # 10.times do
 #   street_address = Faker::Address.street_address
 #   city = Faker::Address.city
@@ -96,7 +96,7 @@
 # )
 # end
 
-## JobType Table 3  # Khong trung ten
+# # JobType Table 3  # Khong trung ten
 # 3.times do 
 # job_type = Faker::Job.employment_type
 # JobType.create!(
@@ -104,25 +104,58 @@
 #   )
 # end
 
+# #CategoryGroup Table 5
+# 5.times do 
+# category_group_name = Faker::Job.seniority
+# CategoryGroup.create!(
+#   category_group_name: category_group_name,
+#   )
+# end
 
-##JobPost Table 10
+# #Category Table 10
+# 10.times do 
+# category_name = Faker::Job.field
+# category_groups_id = CategoryGroup.all[rand(0..4)].id
+# Category.create!(
+#   category_name: category_name,
+#   category_groups_id: category_groups_id,
+#   )
+# end
+
+
+# #JobPost Table 10
 # 10.times do |n|
 # job_description = Faker::Job.title 
+# is_company_name_hidden= 1
+# created_date= Faker::Date.in_date_period
+# is_active= 1
+# users_id = User.all[rand(0..49)].id
+# job_locations_id = JobLocation.all[rand(0..9)].id
+# job_types_id = JobType.all[rand(0..2)].id
+# companies_id = Company.all[rand(0..9)].id
+# categories_id = Category.all[rand(0..9)].id
 # JobPost.create!(
 #   job_description:  job_description ,
+#   is_company_name_hidden:  is_company_name_hidden ,
+#   created_date:  created_date ,
+#   is_active:  is_active ,
+#   users_id:  users_id ,
+#   job_locations_id:  job_locations_id ,
+#   job_types_id:  job_types_id ,
+#   companies_id:  companies_id ,
+#   categories_id:  categories_id ,
 # )
 # end
 
-##JobPostActivity Table 10
+# #JobPostActivity Table 10
 # 10.times do
 #   user_id = User.all[rand(0..49)].id
 #   apply_date = Faker::Date.in_date_period
 #   job_post_id =  JobPost.all[rand(0..9)].id
 #   JobPostActivity.create!(user_id: user_id,apply_date: apply_date, job_post_id: job_post_id)
 # end
-
-# ***
-## SkillSet Table 3  # Khong trung ten
+# # ======================================================
+# # SkillSet Table 3  # Khong trung ten
 # 3.times do 
 # skill_set_name = Faker::Job.key_skill
 # SkillSet.create!(
@@ -130,7 +163,7 @@
 #   )
 # end
 
-#JobPostSkillSet Table 10
+# #JobPostSkillSet Table 10
 # 10.times do
 #   skil_level = rand(0..2)
 #   skill_sets_id = SkillSet.all[rand(0..2)].id
