@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :job_posts do
     get '/findAllUserInPost',to: 'job_posts#findAllUserInPost'
   end
+  
   resources :seeker_profiles
 
+  resources :job_types
+  resources :categories
+  resources :job_locations
+  resources :job_post_activities
 end

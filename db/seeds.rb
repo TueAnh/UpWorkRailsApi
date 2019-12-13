@@ -163,6 +163,21 @@ SkillSet.create!(
   skill_set_name: skill_set_name,
   )
 end
+# #JobPostActivity Table 100
+# 100.times do
+#   user_id = User.all[rand(0..49)].id
+#   apply_date = Faker::Date.in_date_period
+#   job_post_id =  JobPost.all[rand(0..9)].id
+#   JobPostActivity.create!(user_id: user_id,apply_date: apply_date, job_post_id: job_post_id)
+# end
+# # ======================================================
+# # SkillSet Table 3  # Khong trung ten
+# 3.times do 
+# skill_set_name = Faker::Job.key_skill
+# SkillSet.create!(
+#   skill_set_name: skill_set_name,
+#   )
+# end
 
 #JobPostSkillSet Table 10
 10.times do

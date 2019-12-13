@@ -48,4 +48,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'faker'
 
+<<<<<<< HEAD
 gem "active_model_serializers"
+=======
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
+>>>>>>> 0c57862e2a7dcff0ca62e19c51cd55753f0700c3
