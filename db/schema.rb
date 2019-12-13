@@ -92,10 +92,10 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
     t.date "apply_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.bigint "job_posts_id"
-    t.index ["job_posts_id"], name: "index_job_post_activities_on_job_posts_id"
-    t.index ["users_id"], name: "index_job_post_activities_on_users_id"
+    t.bigint "user_id"
+    t.bigint "job_post_id"
+    t.index ["job_post_id"], name: "index_job_post_activities_on_job_post_id"
+    t.index ["user_id"], name: "index_job_post_activities_on_user_id"
   end
 
   create_table "job_post_skill_sets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -199,8 +199,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
   add_foreign_key "company_images", "companies", column: "companies_id"
   add_foreign_key "education_details", "seeker_profiles", column: "seeker_profiles_id"
   add_foreign_key "experience_details", "seeker_profiles", column: "seeker_profiles_id"
-  add_foreign_key "job_post_activities", "job_posts", column: "job_posts_id"
-  add_foreign_key "job_post_activities", "users", column: "users_id"
+  add_foreign_key "job_post_activities", "job_posts"
+  add_foreign_key "job_post_activities", "users"
   add_foreign_key "job_post_skill_sets", "job_posts", column: "job_posts_id"
   add_foreign_key "job_post_skill_sets", "skill_sets", column: "skill_sets_id"
   add_foreign_key "job_posts", "categories", column: "categories_id"

@@ -4,7 +4,7 @@ class CreateJobPostActivities < ActiveRecord::Migration[5.2]
       t.date :apply_date
       t.timestamps
     end
-    add_reference :job_post_activities, :users, foreign_key: true
-    add_reference :job_post_activities, :job_posts, foreign_key: true 
+    add_reference :job_post_activities, :user, foreign_key: true
+    add_reference :job_post_activities, :job_post, foreign_key: true 
   end
 end
