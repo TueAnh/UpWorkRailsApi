@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :job_types
   resources :categories
   resources :job_locations
+  resources :job_post_activities
 end
