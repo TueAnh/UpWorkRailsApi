@@ -147,8 +147,8 @@
 # )
 # end
 
-# #JobPostActivity Table 10
-# 10.times do
+# #JobPostActivity Table 100
+# 100.times do
 #   user_id = User.all[rand(0..49)].id
 #   apply_date = Faker::Date.in_date_period
 #   job_post_id =  JobPost.all[rand(0..9)].id
