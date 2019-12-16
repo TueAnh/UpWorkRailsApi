@@ -92,10 +92,10 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
     t.date "apply_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "job_post_id"
-    t.index ["job_post_id"], name: "index_job_post_activities_on_job_post_id"
-    t.index ["user_id"], name: "index_job_post_activities_on_user_id"
+    t.bigint "users_id"
+    t.bigint "job_posts_id"
+    t.index ["job_posts_id"], name: "index_job_post_activities_on_job_posts_id"
+    t.index ["users_id"], name: "index_job_post_activities_on_users_id"
   end
 
   create_table "job_post_skill_sets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
   end
 
   create_table "seeker_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.string "location"
     t.string "first_name"
     t.string "last_name"
     t.float "current_salary"
@@ -141,8 +143,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
     t.string "currency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.index ["users_id"], name: "index_seeker_profiles_on_users_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_seeker_profiles_on_user_id"
   end
 
   create_table "seeker_skill_sets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -177,6 +179,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.string "email"
     t.string "password_digest"
     t.date "date_of_birth"
@@ -199,8 +202,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
   add_foreign_key "company_images", "companies", column: "companies_id"
   add_foreign_key "education_details", "seeker_profiles", column: "seeker_profiles_id"
   add_foreign_key "experience_details", "seeker_profiles", column: "seeker_profiles_id"
-  add_foreign_key "job_post_activities", "job_posts"
-  add_foreign_key "job_post_activities", "users"
+  add_foreign_key "job_post_activities", "job_posts", column: "job_posts_id"
+  add_foreign_key "job_post_activities", "users", column: "users_id"
   add_foreign_key "job_post_skill_sets", "job_posts", column: "job_posts_id"
   add_foreign_key "job_post_skill_sets", "skill_sets", column: "skill_sets_id"
   add_foreign_key "job_posts", "categories", column: "categories_id"
@@ -208,7 +211,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
   add_foreign_key "job_posts", "job_locations", column: "job_locations_id"
   add_foreign_key "job_posts", "job_types", column: "job_types_id"
   add_foreign_key "job_posts", "users", column: "users_id"
-  add_foreign_key "seeker_profiles", "users", column: "users_id"
+  add_foreign_key "seeker_profiles", "users"
   add_foreign_key "seeker_skill_sets", "seeker_profiles", column: "seeker_profiles_id"
   add_foreign_key "seeker_skill_sets", "skill_sets", column: "skill_sets_id"
   add_foreign_key "user_logs", "users", column: "users_id"
