@@ -1,6 +1,7 @@
 class JobPostsController < ApplicationController
   before_action :set_job_post, only: [:show, :update, :destroy]
   before_action :set_job_post_user , only: [:findAllUserInPost]
+  before_action :authenticate_request, only: []
   # GET /job_posts
   def index
     @job_posts = JobPost.all
