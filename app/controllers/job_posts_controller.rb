@@ -17,7 +17,7 @@ class JobPostsController < ApplicationController
   def create
     # 
     @job_post = JobPost.new(job_post_params)
-    byebug
+    # byebug
     if @job_post.save
       render json: @job_post, status: :created, location: @job_post
     else
