@@ -1,6 +1,6 @@
 class JobTypesController < ApplicationController
   before_action :set_job_type, only: [:show, :update, :destroy]
-
+  before_action :authenticate_request, only: []
   # GET /job_types
   def index
     @job_types = JobType.all

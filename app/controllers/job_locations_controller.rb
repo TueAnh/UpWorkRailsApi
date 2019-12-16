@@ -1,6 +1,6 @@
 class JobLocationsController < ApplicationController
   before_action :set_job_location, only: [:show, :update, :destroy]
-
+  before_action :authenticate_request, only: []
   # GET /job_locations
   def index
     @job_locations = JobLocation.all
