@@ -8,6 +8,6 @@ class CreateEducationDetails < ActiveRecord::Migration[5.2]
     	t.float 	"cgpa" 
       t.timestamps
     end
-    add_reference :education_details, :seeker_profiles, foreign_key: true
+    add_reference :education_details, :seeker_profile, foreign_key: true
   end
 end

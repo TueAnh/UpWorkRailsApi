@@ -7,7 +7,7 @@ class CreateJobPosts < ActiveRecord::Migration[5.2]
     	t.boolean	"is_active"
       t.timestamps
     end
-    add_reference :job_posts, :users, foreign_key: true
-    add_reference :job_posts, :categories, foreign_key: true
+    add_reference :job_posts, :user, foreign_key: true
+    add_reference :job_posts, :category, foreign_key: true
   end
 end

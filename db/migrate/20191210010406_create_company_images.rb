@@ -4,6 +4,6 @@ class CreateCompanyImages < ActiveRecord::Migration[5.2]
     	t.string	"company_image"
       t.timestamps
     end
-    add_reference :company_images, :companies, foreign_key: true
+    add_reference :company_images, :company, foreign_key: true
   end
 end

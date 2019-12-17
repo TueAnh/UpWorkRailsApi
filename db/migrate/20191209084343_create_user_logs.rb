@@ -5,6 +5,6 @@ class CreateUserLogs < ActiveRecord::Migration[5.2]
       t.date :last_job_apply_date
       t.timestamps
     end
-    add_reference :user_logs, :users, foreign_key: true
+    add_reference :user_logs, :user, foreign_key: true
   end
 end

@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
     t.string "category_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "category_groups_id"
-    t.index ["category_groups_id"], name: "index_categories_on_category_groups_id"
+    t.bigint "category_group_id"
+    t.index ["category_group_id"], name: "index_categories_on_category_group_id"
   end
 
   create_table "category_groups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -39,16 +39,16 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
     t.string "company_website_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "business_streams_id"
-    t.index ["business_streams_id"], name: "index_companies_on_business_streams_id"
+    t.bigint "business_stream_id"
+    t.index ["business_stream_id"], name: "index_companies_on_business_stream_id"
   end
 
   create_table "company_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "company_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "companies_id"
-    t.index ["companies_id"], name: "index_company_images_on_companies_id"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_company_images_on_company_id"
   end
 
   create_table "education_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
     t.float "cgpa"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "seeker_profiles_id"
-    t.index ["seeker_profiles_id"], name: "index_education_details_on_seeker_profiles_id"
+    t.bigint "seeker_profile_id"
+    t.index ["seeker_profile_id"], name: "index_education_details_on_seeker_profile_id"
   end
 
   create_table "experience_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "seeker_profiles_id"
-    t.index ["seeker_profiles_id"], name: "index_experience_details_on_seeker_profiles_id"
+    t.bigint "seeker_profile_id"
+    t.index ["seeker_profile_id"], name: "index_experience_details_on_seeker_profile_id"
   end
 
   create_table "job_locations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -92,20 +92,20 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
     t.date "apply_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.bigint "job_posts_id"
-    t.index ["job_posts_id"], name: "index_job_post_activities_on_job_posts_id"
-    t.index ["users_id"], name: "index_job_post_activities_on_users_id"
+    t.bigint "user_id"
+    t.bigint "job_post_id"
+    t.index ["job_post_id"], name: "index_job_post_activities_on_job_post_id"
+    t.index ["user_id"], name: "index_job_post_activities_on_user_id"
   end
 
   create_table "job_post_skill_sets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "skil_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "skill_sets_id"
-    t.bigint "job_posts_id"
-    t.index ["job_posts_id"], name: "index_job_post_skill_sets_on_job_posts_id"
-    t.index ["skill_sets_id"], name: "index_job_post_skill_sets_on_skill_sets_id"
+    t.bigint "skill_set_id"
+    t.bigint "job_post_id"
+    t.index ["job_post_id"], name: "index_job_post_skill_sets_on_job_post_id"
+    t.index ["skill_set_id"], name: "index_job_post_skill_sets_on_skill_set_id"
   end
 
   create_table "job_posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -115,16 +115,16 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
     t.boolean "is_active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.bigint "categories_id"
-    t.bigint "job_locations_id"
-    t.bigint "job_types_id"
-    t.bigint "companies_id"
-    t.index ["categories_id"], name: "index_job_posts_on_categories_id"
-    t.index ["companies_id"], name: "index_job_posts_on_companies_id"
-    t.index ["job_locations_id"], name: "index_job_posts_on_job_locations_id"
-    t.index ["job_types_id"], name: "index_job_posts_on_job_types_id"
-    t.index ["users_id"], name: "index_job_posts_on_users_id"
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.bigint "job_location_id"
+    t.bigint "job_type_id"
+    t.bigint "company_id"
+    t.index ["category_id"], name: "index_job_posts_on_category_id"
+    t.index ["company_id"], name: "index_job_posts_on_company_id"
+    t.index ["job_location_id"], name: "index_job_posts_on_job_location_id"
+    t.index ["job_type_id"], name: "index_job_posts_on_job_type_id"
+    t.index ["user_id"], name: "index_job_posts_on_user_id"
   end
 
   create_table "job_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -151,10 +151,10 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
     t.integer "skill_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "seeker_profiles_id"
-    t.bigint "skill_sets_id"
-    t.index ["seeker_profiles_id"], name: "index_seeker_skill_sets_on_seeker_profiles_id"
-    t.index ["skill_sets_id"], name: "index_seeker_skill_sets_on_skill_sets_id"
+    t.bigint "seeker_profile_id"
+    t.bigint "skill_set_id"
+    t.index ["seeker_profile_id"], name: "index_seeker_skill_sets_on_seeker_profile_id"
+    t.index ["skill_set_id"], name: "index_seeker_skill_sets_on_skill_set_id"
   end
 
   create_table "skill_sets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -168,8 +168,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
     t.date "last_job_apply_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.index ["users_id"], name: "index_user_logs_on_users_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_user_logs_on_user_id"
   end
 
   create_table "user_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -192,28 +192,28 @@ ActiveRecord::Schema.define(version: 2019_12_10_021306) do
     t.date "registration_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_types_id"
+    t.bigint "user_type_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["user_types_id"], name: "index_users_on_user_types_id"
+    t.index ["user_type_id"], name: "index_users_on_user_type_id"
   end
 
-  add_foreign_key "categories", "category_groups", column: "category_groups_id"
-  add_foreign_key "companies", "business_streams", column: "business_streams_id"
-  add_foreign_key "company_images", "companies", column: "companies_id"
-  add_foreign_key "education_details", "seeker_profiles", column: "seeker_profiles_id"
-  add_foreign_key "experience_details", "seeker_profiles", column: "seeker_profiles_id"
-  add_foreign_key "job_post_activities", "job_posts", column: "job_posts_id"
-  add_foreign_key "job_post_activities", "users", column: "users_id"
-  add_foreign_key "job_post_skill_sets", "job_posts", column: "job_posts_id"
-  add_foreign_key "job_post_skill_sets", "skill_sets", column: "skill_sets_id"
-  add_foreign_key "job_posts", "categories", column: "categories_id"
-  add_foreign_key "job_posts", "companies", column: "companies_id"
-  add_foreign_key "job_posts", "job_locations", column: "job_locations_id"
-  add_foreign_key "job_posts", "job_types", column: "job_types_id"
-  add_foreign_key "job_posts", "users", column: "users_id"
+  add_foreign_key "categories", "category_groups"
+  add_foreign_key "companies", "business_streams"
+  add_foreign_key "company_images", "companies"
+  add_foreign_key "education_details", "seeker_profiles"
+  add_foreign_key "experience_details", "seeker_profiles"
+  add_foreign_key "job_post_activities", "job_posts"
+  add_foreign_key "job_post_activities", "users"
+  add_foreign_key "job_post_skill_sets", "job_posts"
+  add_foreign_key "job_post_skill_sets", "skill_sets"
+  add_foreign_key "job_posts", "categories"
+  add_foreign_key "job_posts", "companies"
+  add_foreign_key "job_posts", "job_locations"
+  add_foreign_key "job_posts", "job_types"
+  add_foreign_key "job_posts", "users"
   add_foreign_key "seeker_profiles", "users"
-  add_foreign_key "seeker_skill_sets", "seeker_profiles", column: "seeker_profiles_id"
-  add_foreign_key "seeker_skill_sets", "skill_sets", column: "skill_sets_id"
-  add_foreign_key "user_logs", "users", column: "users_id"
-  add_foreign_key "users", "user_types", column: "user_types_id"
+  add_foreign_key "seeker_skill_sets", "seeker_profiles"
+  add_foreign_key "seeker_skill_sets", "skill_sets"
+  add_foreign_key "user_logs", "users"
+  add_foreign_key "users", "user_types"
 end

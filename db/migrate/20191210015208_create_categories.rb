@@ -4,6 +4,6 @@ class CreateCategories < ActiveRecord::Migration[5.2]
       t.string :category_name
       t.timestamps
     end
-    add_reference :categories, :category_groups, foreign_key: true
+    add_reference :categories, :category_group, foreign_key: true
   end
 end

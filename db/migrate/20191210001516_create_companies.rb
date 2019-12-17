@@ -7,6 +7,6 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
     	t.string	"company_website_url"
       t.timestamps
     end
-    add_reference :companies, :business_streams, foreign_key: true
+    add_reference :companies, :business_stream, foreign_key: true
   end
 end

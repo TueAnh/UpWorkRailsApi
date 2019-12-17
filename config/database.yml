@@ -14,23 +14,21 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  # password: phanminhtuananh123456 
-  password:  
-  #password: taubeopro2202
-  # socket:  /var/run/mysqld/mysqld.sock 
-  socket: /tmp/mysql.sock 
+  # password: phanminhtuananh123456   
+  password: taubeopro2202
+  socket:  /var/run/mysqld/mysqld.sock 
+  #socket: /tmp/mysql.sock 
 
 development:
   <<: *default
-  database: FindWork_development
+  database: FindWorkss_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: FindWork_test
-
+  database: FindWorkss_test
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -52,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: FindWork_production
-  username: FindWork
-  password: <%= ENV['FINDWORK_DATABASE_PASSWORD'] %>
+  database: FindWorkss_production
+  username: FindWorkss
+  password: <%= ENV['FINDWORKSS_DATABASE_PASSWORD'] %>

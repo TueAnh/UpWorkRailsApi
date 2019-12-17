@@ -12,6 +12,6 @@ class CreateExperienceDetails < ActiveRecord::Migration[5.2]
     	t.text 		"description"
       t.timestamps
     end
-    add_reference :experience_details, :seeker_profiles, foreign_key: true
+    add_reference :experience_details, :seeker_profile, foreign_key: true
   end
 end
