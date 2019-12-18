@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :categories
   resources :job_locations
   resources :job_post_activities
+  resources :companies
 end

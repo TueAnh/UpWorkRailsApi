@@ -26,12 +26,13 @@ class JobPostsController < ApplicationController
     end
   end
   def findAllUserInPost
+    # byebug
     @users = @job_post.users
     render json: @users
   end
   # PATCH/PUT /job_posts/1
   def update
-    if @job_post.update(job_post_params)
+    if @job_post.update(job_post_update_params)
       render json: @job_post
     else
       render json: @job_post.errors, status: :unprocessable_entity
@@ -50,11 +51,15 @@ class JobPostsController < ApplicationController
     end
 
     def set_job_post_user
+      
       @job_post = JobPost.find(params[:job_post_id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def job_post_params
-      params.require(:job_post).permit(:job_description,:categories_id,:job_types_id,:job_locations_id)
+      params.require(:job_post).permit(:job_description,:users_id,:categories_id,:job_types_id,:job_locations_id,:companies_id)
+    end
+    def job_post_update_params
+      params.require(:job_post).permit(:id,:job_description,:users_id,:categories_id,:job_types_id,:job_locations_id,:companies_id)
     end
 end
