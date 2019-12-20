@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'authenticate', to: 'authentication#authenticate'
   resources :job_posts do
     get '/findAllUserInPost',to: 'job_posts#findAllUserInPost'
+    get '/details',to: 'job_posts#details'
   end
   
   resources :seeker_profiles

@@ -1,6 +1,6 @@
 class JobPostsController < ApplicationController
   before_action :set_job_post, only: [:show, :update, :destroy]
-  before_action :set_job_post_user , only: [:findAllUserInPost]
+  before_action :set_job_post_user , only: [:findAllUserInPost, :details]
   before_action :authenticate_request, only: []
   # GET /job_posts
   def index
@@ -30,6 +30,20 @@ class JobPostsController < ApplicationController
     @users = @job_post.users
     render json: @users
   end
+
+  def details
+    # byebug
+    render json: {
+      job_description: @job_post.as_json(only: [:id,:job_description]),
+      type: @job_post.job_type.as_json(only: [:id,:job_type]),
+      location: @job_post.job_location.as_json(only: [:id,:street_address,:city,:country]),
+      company: {
+        company: @job_post.company.as_json(only: [:id,:company_name]),
+        image: @job_post.company.company_images.as_json(only: [:company_image])
+      }
+    }
+  end
+
   # PATCH/PUT /job_posts/1
   def update
     if @job_post.update(job_post_update_params)
