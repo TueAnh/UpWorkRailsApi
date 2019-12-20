@@ -32,7 +32,6 @@ class JobPostsController < ApplicationController
   end
 
   def details
-    # byebug
     render json: {
       job_description: @job_post.as_json(only: [:id,:job_description]),
       type: @job_post.job_type.as_json(only: [:id,:job_type]),
@@ -42,6 +41,27 @@ class JobPostsController < ApplicationController
         image: @job_post.company.company_images.as_json(only: [:company_image])
       }
     }
+  end
+
+  def list_details
+    job_post_arr = []
+    # byebug
+    JobPost.all.each_with_index do |j,i|
+      # JobPost.all[i] = j
+      @object = {
+        job_description: j.as_json(only: [:id,:job_description]),
+        type: j.job_type.as_json(only: [:id,:job_type]),
+        location: j.job_location.as_json(only: [:id,:country]),
+        company: {
+          company: j.company.as_json(only: [:id,:company_name]),
+          image: j.company.company_images.as_json(only: [:company_image])
+        }
+      }
+
+      job_post_arr << @object
+    end
+    render json: job_post_arr
+
   end
 
   # PATCH/PUT /job_posts/1
