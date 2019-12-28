@@ -1,6 +1,6 @@
 class JobPostActivitiesController < ApplicationController
   before_action :set_job_post_activity, only: [:show, :update, :destroy]
-
+  before_action :authenticate_request, only: []
   # GET /job_post_activities
   def index
     @job_post_activities = JobPostActivity.all

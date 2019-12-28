@@ -31,6 +31,13 @@ class JobPostsController < ApplicationController
     render json: @users
   end
 
+  def search
+    search_job_post_params
+    chuoi =  '%'+params[:key]+'%'
+    @job_posts = JobPost.where("job_description like ?", chuoi)
+    render json: @job_posts
+  end
+
   def details
     render json: {
       job_description: @job_post.as_json(only: [:id,:job_description]),
@@ -95,5 +102,8 @@ class JobPostsController < ApplicationController
     end
     def job_post_update_params
       params.require(:job_post).permit(:id,:job_description,:users_id,:categories_id,:job_types_id,:job_locations_id,:companies_id)
+    end
+    def search_job_post_params
+      params.permit(:key)
     end
 end

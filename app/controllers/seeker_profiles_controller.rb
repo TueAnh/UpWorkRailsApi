@@ -1,6 +1,6 @@
 class SeekerProfilesController < ApplicationController
   before_action :set_seeker_profile, only: [:show, :update, :destroy]
-
+  before_action :authenticate_request, only: []
   # GET /seeker_profiles
   def index
     @seeker_profiles = SeekerProfile.all
