@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get '/details',to: 'job_posts#details'
   end
   get '/list_job_details', to:'job_posts#list_details'
+  get '/search_job_post/:key', to: "job_posts#search"
   resources :seeker_profiles
 
   resources :job_types
