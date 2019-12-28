@@ -35,6 +35,7 @@ class JobPostActivitiesController < ApplicationController
 
   # DELETE /job_post_activities/1
   def destroy
+    # byebug
     @job_post_activity.destroy
   end
 
