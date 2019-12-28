@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users 
   post 'authenticate', to: 'authentication#authenticate'
   resources :job_posts do
     get '/findAllUserInPost',to: 'job_posts#findAllUserInPost'
