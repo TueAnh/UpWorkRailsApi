@@ -42,10 +42,32 @@ end
 
 # user Table 50
 User.create!(
+  name: "Lưu Văn Huy",
   email: "bubu@gmail.com",
   password:  "123456789",
-  password_confirmation: "123456789"
-  )
+  password_confirmation: "123456789",
+  user_type_id: "1",
+  user_image: "https://scontent.fdad2-1.fna.fbcdn.net/v/t1.0-9/41512000_1066250620199781_802999944792244224_n.jpg?_nc_cat=108&_nc_ohc=uHtc7xN1nEkAQnwLnD78jG5_cPzCAdjOS4tJCCLK2MaaJyUcUDJeiiDKg&_nc_ht=scontent.fdad2-1.fna&oh=210e54e70d17149a350159b122b7821a&oe=5E6684A1"
+)
+
+User.create!(
+  name: "Nguyễn Đức Tuệ Anh",
+  email: "tueanh@gmail.com",
+  password:  "123456789",
+  password_confirmation: "123456789",
+  user_type_id: "3",
+  user_image: "https://scontent.fdad2-1.fna.fbcdn.net/v/t1.0-9/13332874_1725252514417488_4229047402958600139_n.jpg?_nc_cat=107&_nc_ohc=rvgOTPJJdL0AQkuIhXiXLZnmpQq_pDiehOCmygxyqmfPnOY7vAbiXvOwA&_nc_ht=scontent.fdad2-1.fna&oh=92b68efe044fa8d7ff17074fbbee65cd&oe=5EAB6EFE"
+)
+
+User.create!(
+  name: "Phan Minh Tuấn Anh",
+  email: "tuananh@gmail.com",
+  password:  "123456789",
+  password_confirmation: "123456789",
+  user_type_id: "3",
+  user_image: "https://scontent.fdad2-1.fna.fbcdn.net/v/t1.0-9/38421968_1117159601766796_1050481389226426368_n.jpg?_nc_cat=111&_nc_ohc=l6BvIYNwyb4AQnWKXnPCNgCJQN15adDkUqwVG1WurpwqknqUHI1IKxSHw&_nc_ht=scontent.fdad2-1.fna&oh=d91d8e7b948f1c521339956b519d6691&oe=5EADB5DE"
+)
+
 50.times do |n|
 email = "user#{n+1}@gmail.com"
 password = "123456789"
