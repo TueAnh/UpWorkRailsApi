@@ -52,7 +52,7 @@ class SeekerProfilesController < ApplicationController
     end
 
     def seeker_profile_update_params
-      params.require(:seeker_profile).permit(:title,:location,:current_salary,:user_id)
+      params.require(:seeker_profile).permit(:id,:title,:location,:current_salary,:user_id)
     end
 
 end
