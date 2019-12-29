@@ -28,7 +28,7 @@ class SeekerProfilesController < ApplicationController
 
   # PATCH/PUT /seeker_profiles/1
   def update
-    if @seeker_profile.update(seeker_profile_params)
+    if @seeker_profile.update(seeker_profile_update_params)
       render json: @seeker_profile
     else
       render json: @seeker_profile.errors, status: :unprocessable_entity
@@ -48,6 +48,11 @@ class SeekerProfilesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def seeker_profile_params
-      params.fetch(:seeker_profile, {})
+      params.permit(:title,:location,:current_salary,:user_id)
     end
+
+    def seeker_profile_update_params
+      params.require(:seeker_profile).permit(:title,:location,:current_salary,:user_id)
+    end
+
 end
